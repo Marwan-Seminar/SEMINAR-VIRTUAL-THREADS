@@ -31,6 +31,7 @@ public class StartVirtualThreads_BASE {
 
 		// 2. ExecutorService fuer Ausfuehrung in einem Virtual-Thread nutzen
 		instance.executeInVirtualThread();
+		
 	}
 
 	/*
