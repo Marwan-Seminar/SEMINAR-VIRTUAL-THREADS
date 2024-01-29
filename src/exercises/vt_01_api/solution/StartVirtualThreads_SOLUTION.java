@@ -31,7 +31,7 @@ public class StartVirtualThreads_SOLUTION {
 		// 2. ExecutService fuer Ausfuehrung in einem Virtual-Thread nutzen 
 		instance.executeInVirtualThread();
 	}
-	
+
 	/*
 	 * Startet einen Virtual-Thread
 	 */
