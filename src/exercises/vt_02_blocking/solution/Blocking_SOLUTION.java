@@ -15,8 +15,7 @@ package exercises.vt_02_blocking.solution;
  * - Zeige, dass ein Virtual-Thread verschiedene Carrier haben kann, indem Du den Carrier vor und nach sleep() vergleichst
  */
 public class Blocking_SOLUTION {
-	
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		Blocking_SOLUTION instance = new Blocking_SOLUTION();
 		

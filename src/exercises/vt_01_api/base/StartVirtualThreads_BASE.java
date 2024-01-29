@@ -17,11 +17,9 @@ import java.util.concurrent.Future;
  * 	- Verwende Executors.newVirtualThreadPerTaskExecutor(), um einen geeigneten Executor Service zu erhalten
  * 	- Fuehre einen Virtual-Thread aus, schreibe dessen String Repraesentation auf die Konsole
  * 	- Warte auf das Ende der Ausfuehrung, nutze dafür ein Future Objekt
- * 
- * 
+ *
  */
 public class StartVirtualThreads_BASE {
-
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 
 		StartVirtualThreads_BASE instance = new StartVirtualThreads_BASE();
