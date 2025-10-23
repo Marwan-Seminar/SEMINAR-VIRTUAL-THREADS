@@ -1,4 +1,4 @@
-package exercises.struct_conc.sc_01_strucured_scope.base;
+package exercises.struct_conc.sc_01_structured_scope.base;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.StructuredTaskScope;
