@@ -1,21 +1,23 @@
-package exercises.vt_11_structured_conc.base;
+package exercises.struct_conc.sc_01_strucured_scope.base;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.StructuredTaskScope.Subtask;
 
 /*
- * Structured Concurrency 
+ * Aufgabe S-C 01
  * 
- * 1. Definiere einen Scope mithilfe der Klasse StructuredTaskScope.ShutdownOnFailure
+ * Structured Concurrency: Structured Scope Structured Concurrency 
  * 
- * 2. Starte darin zwei Subtasks unter Verwendung der Methode StructuredTaskScope.fork()
+ * 1. Definiere einen Scope mithilfe der Klasse StructuredTaskScope
  * 
- * 3. Werfe aus einer der Subtasks eine Exception. Sorge dafuer, dass die zweite Task dadurch beendet wird.
+ * 2. Starte darin zwei Subtasks unter Verwendung der Methode StructuredTaskScope.fork() und zeige, dass der 
+ * 	Scope erst dann beendet wird, wenn beide Subtasks abgeschlossen sind
+ * 
+ * 3. Werfe aus der ersten Subtasks eine Exception. Sorge dafuer, dass die zweite Subtask dadurch beendet wird.
 
  * Hinweis: 
  * - scope.join(); wartet auf alle Subtasks
- * - scope.throwIfFailed(); Sorgt dafuer, dass alle Subtasks benachrichtigt werden, dass eine Exception geworfen wurde
  * - WICHTIG: Jede Subtask muss ihren Interrupted Zustand regelmaessig pruefen: Thread.currentThread().isInterrupted()
  * 
  * Zwei Subtasks werden gestartet, wenn eine von beiden eine Exception wirft, so kann das im Scope festgestellt werden
@@ -24,8 +26,7 @@ import java.util.concurrent.StructuredTaskScope.Subtask;
  * Dafuer ist es allerdings Voraussetzung, dass die Subtasks ihren Interrupted Status pruefen und sich 
  * ggf. selbst beenden. 
  * 
- * Die Leistung des Framworks ist es, den Interrupted Status an den Subtaks-Thread zu kommunizieren.
- * 
+ * Die Leistung des Framworks ist es, den Interrupted Status an den Subtaks-Thread zu kommunizieren. 
  *
  */
 public class StructuredConcurrency_BASE {
@@ -44,9 +45,8 @@ public class StructuredConcurrency_BASE {
 		System.out.println("StructuredConcurrency_BASE.structuredConcurrencyExample()");
 
 		
-		// ShutdownOnFailure ist ein Scope mit der Policy im Fehlerfall alle Subtasks zu beenden
-		try(var scope = new StructuredTaskScope.ShutdownOnFailure()){
-			
+		// TODO nutze  StructuredTaskScope.open() um einen Scope zu oeffnen try(var scope =  StructuredTaskScope.open()){
+		{	
 			// Subtask starten
 			Subtask<String> subTask1;  // TODO scope.fork(() -> { });
 			
@@ -69,12 +69,7 @@ public class StructuredConcurrency_BASE {
 			// TODO: warten auf alle Subtasks
 			//	scope.join();
 			
-			// TODO Scope abbrechen und Exception werfen
-			//scope.throwIfFailed();
-			
-		    // TODO Ergebnisse der Subtasks abholen
-			//System.out.println(subTask1.get());
-			//System.out.println(subTask2.get());
+		
 		}
 	}
 	

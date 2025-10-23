@@ -1,18 +1,33 @@
-package exercises.vt_11_structured_conc.solution;
+package exercises.struct_conc.sc_01_strucured_scope.solution;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.StructuredTaskScope.Subtask;
 
 /*
- * Structured Concurrency
  * 
- * Zwei Subtasks werden gestartet.
+ * Aufgabe S-C 01
  * 
- * Wenn eine von beiden eine Exception wirft, so kann das im Scope festgestellt werden
- * und der Scope verlassen werden Dafuer muss aber jede Subtask ihren Interrupted Status
- * selbst regelmaessig pruefen und sich ggf. beenden.
+ * Structured Concurrency: Structured Scope
  * 
+ * 1. Definiere einen Scope mithilfe der Klasse StructuredTaskScope
+ * 
+ * 2. Starte darin zwei Subtasks unter Verwendung der Methode StructuredTaskScope.fork() und zeige, dass der 
+ * 	Scope erst dann beendet wird, wenn beide Subtasks abgeschlossen sind
+ * 
+ * 3. Werfe aus einer der Subtasks eine Exception. Sorge dafuer, dass die zweite Task dadurch beendet wird.
+ * Hinweis: 
+ * - scope.join(); wartet auf alle Subtasks
+ * - WICHTIG: Jede Subtask muss ihren Interrupted Zustand regelmaessig pruefen: Thread.currentThread().isInterrupted()
+ * 
+ * Zwei Subtasks werden gestartet, wenn eine von beiden eine Exception wirft, so kann das im Scope festgestellt werden
+ * und der Scope verlassen werden.
+ * 
+ * Dafuer ist es allerdings Voraussetzung, dass die Subtasks ihren Interrupted Status pruefen und sich 
+ * ggf. selbst beenden. 
+ * 
+ * Die Leistung des Framworks ist es, den Interrupted Status an den Subtaks-Thread zu kommunizieren. 
+ *
  */
 public class StructuredConcurrency_SOLUTION {
 	
@@ -27,7 +42,7 @@ public class StructuredConcurrency_SOLUTION {
 		
 		/////////////// Scope Begin //////////////////
 		
-		try(var scope = new StructuredTaskScope.ShutdownOnFailure()){
+		try(var scope =  StructuredTaskScope.open()){
 			
 			// Subtask starten
 			Subtask<String> subTask1 =  scope.fork(() -> {
@@ -60,12 +75,8 @@ public class StructuredConcurrency_SOLUTION {
 			scope.join();
 			System.out.println("Join returned");
 		
-			// Wirft die Exeption weiter, die in irgendeiner der Tasks geworfen wurde
-			scope.throwIfFailed();	
 			
-			// Spaetestens hier werden Exceptions weiter geworfen
-			System.out.println(subTask1.get());
-			System.out.println(subTask2.get());
+	
 		}
 	}
 	

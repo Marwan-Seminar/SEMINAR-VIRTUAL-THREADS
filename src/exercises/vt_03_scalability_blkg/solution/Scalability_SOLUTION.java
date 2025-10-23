@@ -14,6 +14,8 @@ package exercises.vt_03_scalability_blkg.solution;
  */
 public class Scalability_SOLUTION {
 	
+	final static int NR_OF_THREADS = 100_000;
+	
 	public static void main(String[] args) {
 		
 		System.out.println("Scalability_SOLUTION ");
@@ -37,7 +39,7 @@ public class Scalability_SOLUTION {
 	private void platformThreadsScalabiltyCrash() {
 		System.out.println("Scalability_SOLUTION.platformThreadsScalabiltyCrash()");
 		// Auf meinem Rechner stuerzt das Programm ab ca. 4100 Threads ab.
-		for(int i = 0; i < 10_000; ++i) {
+		for(int i = 0; i < NR_OF_THREADS; ++i) {
 			
 			final int cnt = i;
 			
@@ -65,15 +67,17 @@ public class Scalability_SOLUTION {
 	private void virtualThreadsScalabiltyStable() {
 		System.out.println("Scalability_SOLUTION.virtualThreadsScalabiltyStable()");
 
+		final long start = System.currentTimeMillis();
+		
 		// Schleife zum Starten vieler virtueller Threads
-		for(int i = 0; i < 10_000; ++i) {
+		for(int i = 0; i < NR_OF_THREADS; ++i) {
 			
 			final int cnt = i;
 			
 			// Starte virtuellen Thread
 			Thread.startVirtualThread(()->{
 				
-				System.out.println("New virtual Thread " + cnt);
+				System.out.println("New virtual Thread running: " + cnt + " " + (System.currentTimeMillis() - start)  + " Millis ");
 				
 				sleep(1000);
 				
