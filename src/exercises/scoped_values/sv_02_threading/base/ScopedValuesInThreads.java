@@ -1,4 +1,4 @@
-package exercises.scoped_values.sv_02threading.base;
+package exercises.scoped_values.sv_02_threading.base;
 
 import java.util.concurrent.StructuredTaskScope;
 
