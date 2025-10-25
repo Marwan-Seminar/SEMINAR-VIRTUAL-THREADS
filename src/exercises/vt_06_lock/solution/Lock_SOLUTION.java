@@ -9,6 +9,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * Locks sind eine Alternative zu synchronized.
  */
 public class Lock_SOLUTION {
+	
+	
+	final static int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+	final static int TASK_COUNT = CPU_COUNT +2;
 
 	public static void main(String[] args) {
 		Lock_SOLUTION instance = new Lock_SOLUTION();
@@ -36,11 +40,13 @@ public class Lock_SOLUTION {
 	 */
 	void lockScenario() {
 		
+		System.out.println("CPU_COUNT " + CPU_COUNT + " TASK_COUNT " + TASK_COUNT);
+		
 		final ReentrantLock reentrantLock = new ReentrantLock();
 		final long baseTime = System.currentTimeMillis();
 		
 		// start competing Threads
-		for(int i = 0; i < 10; ++i) {
+		for(int i = 0; i < TASK_COUNT; ++i) {
 			final int cnt = i;
 			
 			Thread.startVirtualThread(() -> {
@@ -64,7 +70,7 @@ public class Lock_SOLUTION {
 			
 		}
 		
-		sleep(10000);
+		sleep(30000);
 	}
 	
 	

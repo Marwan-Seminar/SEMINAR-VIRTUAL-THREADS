@@ -18,6 +18,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * 
  */
 public class Lock_BASE {
+	
+
+	final static int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+	final static int TASK_COUNT = CPU_COUNT +2;
 
 	public static void main(String[] args) {
 		Lock_BASE instance = new Lock_BASE();
@@ -25,11 +29,11 @@ public class Lock_BASE {
 	}
 	
 	/* 
-	 
-	 * Es werden 10 virtual Threads gestartet. Der Zeitpunkt des jewiligen Starts wird gemessen,
+	 * Es werden mehr virtual Threads gestartet als der Rechner Cores hat (CPU_COUNT).
+	 * Der Zeitpunkt des jewiligen Starts wird gemessen,
 	 * und am Ende des Threads ausgegeben. 
 	 *  
-	 * Ohne Lock laufen zunaechst nur 8 virtual Threads, diese ersten 8 belegen die CPUs,
+	 * Ohne Lock laufen zunaechst nur CPU_COUNT viele virtual Threads, diese belegen die CPUs,
 	 * alle weiteren virtual Threads bekommen erst dann einen Carrier, wenn die ersten 
 	 * Virtual-Threads beendet sind.
 	 *  
@@ -40,12 +44,14 @@ public class Lock_BASE {
 	 */
 	void lockScenario() {
 		
+		System.out.println("CPU_COUNT " + CPU_COUNT + " TASK_COUNT " + TASK_COUNT);
+		
 		// TODO 1 ReentrantLock instanziieren
 		
 		final long baseTime = System.currentTimeMillis();
 		
 		// start 10 virtual Threads
-		for(int i = 0; i < 10; ++i) {
+		for(int i = 0; i < TASK_COUNT; ++i) {
 			final int cnt = i;
 			
 			Thread.startVirtualThread(() -> {
