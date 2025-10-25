@@ -5,14 +5,17 @@ import java.util.concurrent.StructuredTaskScope;
 /*
  * Der Sinn von Scoped Values ist es, diese in Threads zur Verfügung zu stellen.
  * 
- * Dafuer gibt es unterschiedliche Szenarien. Hier zwei Beispiele
+ * Dafuer gibt es unterschiedliche Herangehensweisen. 
  * 
- * A) Inheritance: Nutze eine ScopedValue Instanz um mehrerern Threads einen indentischen Wert zur Verfuegung zu stellen. 
- * 	Verwende dafuer einen StructuredTaskScope. 
+ * A) Inheritance identischer Werte im StructuredTaskScope
+ * Nutze eine ScopedValue Instanz um mehrerern Threads einen indentischen Wert zur Verfuegung zu stellen.
+ * Verwende dafuer einen StructuredTaskScope. 
  * 
- * B) Weise mehreren Threads innerhalb eines StructuredTaskScope jeweils unterschiedliche Werte zu
+ * B) Unterschiedliche Werte im StructuredTaskScope
+ * Weise mehreren Threads innerhalb eines StructuredTaskScope jeweils unterschiedliche Werte zu
  * 
- * c) Nutze Bindings (where()) in unstrukturierten Threads um jedem einen eigenen Wert zuzuweisen
+ * C) Unterschiedliche Werte in unstrukturierten Threads
+ * Nutze Bindings (where()) in unstrukturierten Threads um jedem einen eigenen Wert zuzuweisen
  */
 public class ScopedValuesInThreads {
 	
@@ -25,13 +28,13 @@ public class ScopedValuesInThreads {
 		
 		ScopedValuesInThreads instance = new ScopedValuesInThreads();
 		
-		// A) Inheritance
+		// A) Inheritance identischer Werte im StructuredTaskScope
 		instance.scopedValueInheritance();
 		
-		// B) Verschiedene Werte innnerhalb eines StructuredTaskScopes
+		// B) Unterschiedliche Werte im StructuredTaskScope
 		//instance.scopedValueBindingsInStructuredScope();
 		
-		// C) Verschiedene Werte pro Thread
+		 // C) Unterschiedliche Werte in unstrukturierten Threads
 		//instance.differentValuesIndepententThreads();
 	}
 	
