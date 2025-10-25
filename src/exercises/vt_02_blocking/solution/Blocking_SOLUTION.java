@@ -21,7 +21,7 @@ public class Blocking_SOLUTION {
 		
 		instance.blockingCallReleasesCarrier();
 		
-		instance.blockingCallReleasesCarrierPrecise();
+		//instance.blockingCallReleasesCarrierPrecise();
 	}
 	
 	
