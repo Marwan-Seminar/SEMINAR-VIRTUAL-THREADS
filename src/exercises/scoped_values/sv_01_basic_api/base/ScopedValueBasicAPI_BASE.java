@@ -1,24 +1,24 @@
 package exercises.scoped_values.sv_01_basic_api.base;
 
 /*
- * Diese Aufgabe demonstriert das grundlagende API von Scoped Values: where() und run().
+ * Diese Aufgabe demonstriert das grundlegende API von Scoped Values: where() und run().
  * 
  * Es geht dabei um das Binden von Werten innerhalb von Scopes und den Zugriff auf diese Werte.
  * Alles findet im Main Thread statt(!).
  * 
  * A) Binding und Scope
- * Benutze eine Variable vom Typ ScopedValue. Weise ihr mithilfe der Methode where() einen Wert innerhalb einesScope zu. 
+ * Benutze eine Variable vom Typ ScopedValue. Weise ihr mithilfe der Methode where() einen Wert innerhalb eines Scope zu. 
  * Führe mit run() Ein Lambda in diesem Scope aus. Greife aus dem Lambda auf den Wert zu und schreibe ihn auf die Console.
  * 
  * B) Chainig
- * Instanziiere mehrere Variablen vom Typ Scoped Value. Benutze mehrere verkettete where() Aufrufe um ihnen Werte zuzusweisen
+ * Instanziiere mehrere Variablen vom Typ Scoped Value. Benutze mehrere verkettete where() Aufrufe um ihnen Werte zuzusweisen,
  * die im selben Scope gueltig sind. Starte mit run() ein Lambda, das auf alle diese Werte zugreifen kann, und schreibe sie auf die 
  * Console.
  * 
  * C) Rebinding:
- * Eroeffne Innerhalb eines Scopes einen Sub-Scope.
+ * Eroeffne innerhalb eines Scopes einen Sub-Scope.
  * Binde im Sub-Scope einen neuen Wert an den Scoped-Value. 
- * Zeige, dass innerhalb des Sub-Scopes der neue Wert gitl und dass nach dem Verlassen des Sub-Scopes wieder der alte Wert gueltig ist.  
+ * Zeige, dass innerhalb des Sub-Scopes der neue Wert gitl, und dass nach dem Verlassen des Sub-Scopes wieder der alte Wert gueltig ist.  
  * 
  */
 public class ScopedValueBasicAPI_BASE {
