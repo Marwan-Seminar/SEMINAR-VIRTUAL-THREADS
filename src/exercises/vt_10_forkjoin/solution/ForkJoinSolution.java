@@ -49,8 +49,8 @@ public class ForkJoinSolution {
 		// Fork-Join-Pool
 		ForkJoinPool fjPool = ForkJoinPool.commonPool();
 		
-		// ab 264 bei mir Deadlock
-		for(int i = 0; i< 264; ++i) {
+		// ab 269 bei mir Deadlock: DAS IST ABER PLATFORM ABHAENGIG!!!
+		for(int i = 0; i< 300; ++i) {
 			
 			final int count = i;
 			

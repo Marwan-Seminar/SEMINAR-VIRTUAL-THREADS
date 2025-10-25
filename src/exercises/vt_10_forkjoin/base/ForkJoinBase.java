@@ -30,6 +30,8 @@ public class ForkJoinBase {
 	 * Es fehlen die ForkJoinTasks, die die Aufrufe take() und put() ausfuehren.
 	 * 
 	 * Hinweis: Starte viele ForkJoinTasks, damit es zum Deadlock kommt (z.B. 300).
+	 * Die Anzahl ist aber plattformabhaengig!
+	 * 
 	 */
 	void blockingQueueBase() {
 		
@@ -58,7 +60,7 @@ public class ForkJoinBase {
 	
 		
 		
-		// kurz warten bevor die Einfuegenden Threads gestartet werden
+		// kurz warten bevor die einfuegenden Threads gestartet werden
 		sleep(100);
 		
 		System.out.println("////////////// EINFUEGE JOBS STARTEN ////////////////// ");
