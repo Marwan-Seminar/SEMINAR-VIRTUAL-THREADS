@@ -14,6 +14,11 @@ package exercises.vt_03_scalability_blkg.base;
  */
 public class Scalability_BASE {
 	
+	// Diese beiden Parameter sind entscheidend um das Skalierbarkeits-Problem zu demonstrieren
+	// sie sind fuer jede Plattform unterschiedlich einzustellen.
+	final static int NR_OF_THREADS = 100_000;
+	final static int SLEEP_SECONDS = 10;
+	
 	public static void main(String[] args) {
 		
 		System.out.println("Scalability_BASE ");
@@ -33,12 +38,12 @@ public class Scalability_BASE {
 	private void platformThreadsScalabiltyCrash() {
 		System.out.println("Scalability_BASE.platformThreadsScalabiltyCrash()");
 		
-		// Auf meinem Rechner stuerzt das Programm ab ca. 4100 Threads ab.
-		for(int i = 0; i < 10_000; ++i) {
+		// Auf meinem Rechner stuerzt das Programm ab ca. 12.000 Threads ab.
+		for(int i = 0; i < NR_OF_THREADS; ++i) {
 			
 			// TODO: Plattform-Thread starten: new Thread(()->{...}).start();
 			
-			// TODO 2: Im Thread einen Blocking-Call aufrufen, z.B. sleep(1000)
+			// TODO 2: Im Thread einen Blocking-Call aufrufen, z.B. sleep(SLEEP_SECONDS * 1000)
 			
 			// TODO 3: Zeigen, dass es abstuerzt mit java.lang.OutOfMemoryError
 			

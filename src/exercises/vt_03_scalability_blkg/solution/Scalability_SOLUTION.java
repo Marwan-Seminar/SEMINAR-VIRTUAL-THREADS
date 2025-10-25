@@ -14,7 +14,11 @@ package exercises.vt_03_scalability_blkg.solution;
  */
 public class Scalability_SOLUTION {
 	
+	
+	// Diese beiden Parameter sind entscheidend um das Skalierbarkeits-Problem zu demonstrieren
+	// sie sind fuer jede Plattform unterschiedlich einzustellen.
 	final static int NR_OF_THREADS = 100_000;
+	final static int SLEEP_SECONDS = 10;
 	
 	public static void main(String[] args) {
 		
@@ -48,7 +52,7 @@ public class Scalability_SOLUTION {
 				
 				System.out.println("New OS Thread " + cnt);
 				
-				sleep(1000);
+				sleep(SLEEP_SECONDS * 1000);
 				
 				
 			});
@@ -79,7 +83,7 @@ public class Scalability_SOLUTION {
 				
 				System.out.println("New virtual Thread running: " + cnt + " " + (System.currentTimeMillis() - start)  + " Millis ");
 				
-				sleep(1000);
+				sleep(SLEEP_SECONDS * 1000);
 				
 				//System.out.println("Virtual Thread woke up " + cnt);
 				
