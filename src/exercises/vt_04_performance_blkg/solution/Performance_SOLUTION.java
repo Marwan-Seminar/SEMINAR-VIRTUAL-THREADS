@@ -11,7 +11,10 @@ import java.util.concurrent.Executors;
  */
 public class Performance_SOLUTION {
 
-	
+	// Parameter um die Problematik an die jeweilige Plattform anzupassen
+	static final int JOB_COUNT = 100_000;
+	static final int POOL_SIZE = 10_000;
+	static final int SLEEP_SECONDS = 10;
 	
 	public static void main(String[] args) {
 		
@@ -29,7 +32,7 @@ public class Performance_SOLUTION {
 		
 		long start = System.currentTimeMillis();
 		
-		for(int i = 0 ; i <= 10_000; ++i) {
+		for(int i = 0 ; i <= JOB_COUNT; ++i) {
 			final int loop_cnt = i;
 			
 			pool.submit(() -> {
@@ -38,7 +41,7 @@ public class Performance_SOLUTION {
 					System.out.println("Job " + loop_cnt + " started");
 		
 					// Blockierender Aufruf
-					Thread.sleep(1000);
+					Thread.sleep(SLEEP_SECONDS * 1000);
 					
 					System.out.println("Job " + loop_cnt + " woke up " + (System.currentTimeMillis() - start) / 1000 + " Seconds ");
 				

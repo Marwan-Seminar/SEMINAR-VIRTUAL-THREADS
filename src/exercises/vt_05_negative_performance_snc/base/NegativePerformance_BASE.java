@@ -6,6 +6,8 @@ import java.util.List;
 
 
 /*
+ * VERALTET!!! PINNING IN SYNCHRONIZED NICHT MHER AKTUELL
+ * 
  * Zeige, dass es Szenarien gibt, die durch den Einsatz von Virtual Threads langsamer werden.
  * 
  * HINWEIS: Im vorliegenden Fall kann dafür Folgendes ausgenutzt werden:

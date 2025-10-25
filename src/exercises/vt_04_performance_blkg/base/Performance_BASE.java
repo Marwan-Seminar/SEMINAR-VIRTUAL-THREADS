@@ -17,6 +17,11 @@ import java.util.concurrent.Executors;
  */
 public class Performance_BASE {
 	
+	// Parameter um die Problematik an die jeweilige Plattform anzupassen
+	static final int JOB_COUNT = 100_000;
+	static final int POOL_SIZE = 10_000;
+	static final int SLEEP_SECONDS = 10;
+	
 	public static void main(String[] args) {
 		
 		Performance_BASE instance = new Performance_BASE();
@@ -28,16 +33,16 @@ public class Performance_BASE {
 	void platformThreadsSlow(){
 		
 		// Ansatz 1: 10 Sekunden (Langsam)
-		ExecutorService pool = Executors.newFixedThreadPool(1000); // Pool mit 100 Platform Threads
+		ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE); // Pool mit 100 Platform Threads
 		
 		
 		
-		// Ansatz 2:  Crash ab 4100 Jobs auf meinem Rechner (schneller, aber nicht stabil), wenn der Heap 
-		//ExecutorService pool = Executors.newCachedThreadPool(); // Wachsender Pool mit  Platform Threads
+		// Ansatz 2:  Crash ab 12.000 Jobs auf meinem Rechner (schneller, aber nicht stabil)
+		// ExecutorService pool = Executors.newCachedThreadPool(); // Wachsender Pool mit  Platform Threads
 		
 		long start = System.currentTimeMillis();
 		
-		for(int i = 0 ; i <= 10_000; ++i) {
+		for(int i = 0 ; i <= JOB_COUNT; ++i) {
 			final int loop_cnt = i;
 			
 			pool.submit(() -> {
@@ -46,7 +51,7 @@ public class Performance_BASE {
 					System.out.println("Job " + loop_cnt + " started");
 		
 					// Blockierender Aufruf
-					Thread.sleep(1000);
+					Thread.sleep(SLEEP_SECONDS * 1000);
 					
 					System.out.println("Job " + loop_cnt + " woke up " + (System.currentTimeMillis() - start) / 1000 + " Seconds ");
 				
