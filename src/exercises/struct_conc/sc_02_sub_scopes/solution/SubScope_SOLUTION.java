@@ -9,10 +9,10 @@ import java.util.concurrent.StructuredTaskScope.Subtask;
 /*
  * Aufgabe S-C 02 zu Sub-Scopes.
  * 
- * Es gibt mehrere Varianten von Sub-Scopes in einem StructduredTaskScope.
+ * Es gibt mehrere Varianten von Sub-Scopes in einem StructuredTaskScope.
  * 
- *  Variante 1. innerhalb eines umschließenden Scopes
- *  Variante 2. innerhalb eines Tasks
+ * Variante 1 Sub Scope innerhalb des umschließenden Scopes
+ * Variante 2 Sub-Scope innerhalb eines Subtasks des umschließenden Scopes
  *  
  *  Aufgabe
  *  

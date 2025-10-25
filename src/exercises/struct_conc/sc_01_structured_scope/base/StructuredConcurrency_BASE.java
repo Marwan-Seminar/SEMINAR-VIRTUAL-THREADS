@@ -7,7 +7,7 @@ import java.util.concurrent.StructuredTaskScope.Subtask;
 /*
  * Aufgabe S-C 01
  * 
- * Structured Concurrency: Structured Scope Structured Concurrency 
+ * Scope based Structured Concurrency
  * 
  * 1. Definiere einen Scope mithilfe der Klasse StructuredTaskScope
  * 
