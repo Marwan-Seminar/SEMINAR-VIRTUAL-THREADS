@@ -59,7 +59,7 @@ public class StructuredConcurrency_SOLUTION {
 				for(int i = 0; i < 1000; ++i) {
 					System.out.println("Task 2 loop: " + i  +" called in "  + Thread.currentThread());
 					
-					// Interruptede Status muss geprüft werden
+					// Interrupted Status muss geprüft werden
 					if (Thread.currentThread().isInterrupted()) {
 		                System.out.println(" Interruption ");
 		                // Subtask kehrt "freiwillig" zurueck, weil ihr Interruptd Status gesetzt wurde
