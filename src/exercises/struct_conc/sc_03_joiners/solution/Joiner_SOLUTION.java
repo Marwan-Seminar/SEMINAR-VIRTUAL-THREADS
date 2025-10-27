@@ -9,7 +9,7 @@ import java.util.concurrent.StructuredTaskScope.Subtask;
 
 
 /*
- * Joiner definieren das Verhalten eines StrucutedTaskScopes.
+ * Joiner definieren das Verhalten eines StructuredTaskScope.
  * 
  * Es gibt merhere vordefinierte Joiner, die z.B. das erste verfuegbare 
  * Ergebnis zurueckliefern und die verbleibenden Tasks im Scope abbrechen.
@@ -32,7 +32,7 @@ import java.util.concurrent.StructuredTaskScope.Subtask;
  * 		Dieser Joiner soll das Maximum der Ergebnisse der Subtasks berechnen.
  * 		(Der Einfachheit halber beschraenke Dich auf Subtasks, die Integer zurueckgeben).
  *  
- *  2)	Baue einen Scope, der mehrere Tasks hat die Integer Werte zurueckgeben.
+ *  2)	Baue einen Scope, der mehrere Tasks hat, die Integer Werte zurueckgeben.
  *  	Benutze darin den Joiner aus 1) und zeige, dass er das Maximum der Rueckgabwerte findet.
  *  
  */
