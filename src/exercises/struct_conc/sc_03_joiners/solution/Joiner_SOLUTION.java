@@ -138,7 +138,7 @@ public class Joiner_SOLUTION {
 	 * Diese Methode definiert einen Scope, der drei Subtasks forkt,
 	 * die ein jeweils ein int zurueckgeben.
 	 * 
-	 * Er benutzt einen selbst geschreibenen Joiner. Dieser findet das
+	 * Er benutzt einen selbst geschriebenen Joiner. Dieser findet das
 	 * Maximum der Rueckgabewerte und gibt es ueber join() zurueck.
 	 * 
 	 */
