@@ -43,6 +43,10 @@ public class ForkJoinSolution {
 	 */
 	void blockingQueueForkJoinDeadlock() {
 		
+		// Dies ist die entscheidende Zahl! Soviele Fork-Join-Tasks werden gestartet.
+		// Auf meiner Platform genuegt 300 um ein Deadlock zu provozieren, da der Fork-Join-Pool nur bis etwa 268 waechst.
+		final int NR_OF_TAKE_TASKS = 300;
+		
 		// Blocking Queue
 		BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>(10);
 		
@@ -50,7 +54,7 @@ public class ForkJoinSolution {
 		ForkJoinPool fjPool = ForkJoinPool.commonPool();
 		
 		// ab 269 bei mir Deadlock: DAS IST ABER PLATFORM ABHAENGIG!!!
-		for(int i = 0; i< 300; ++i) {
+		for(int i = 0; i< NR_OF_TAKE_TASKS; ++i) {
 			
 			final int count = i;
 			
