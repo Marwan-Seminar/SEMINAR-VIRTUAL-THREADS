@@ -24,10 +24,12 @@ public class Lock_SOLUTION {
 	 * 
 	 * Man sieht das an folgendem Vergleich:
 	 * 
-	 * Es werden 10 virtual Threads gestartet. Der Zeitpunkt des jewiligen Starts wird gemessen,
+	 * CPU_COUNT ist die anzahl der CPU-Cores dieses Rechners.
+	 * 
+	 * Es werden CPU_COUNT + 2 virtual Threads gestartet. Der Zeitpunkt des jewiligen Starts wird gemessen,
 	 * und am Ende des Threads ausgegeben. 
 	 *  
-	 * Ohne Lock laufen zunaechst nur 8 virtual Threads, diese ersten 8 belegen die CPUs,
+	 * Ohne Lock laufen zunaechst nur CPU_COUNT viele virtual Threads, diese belegen die CPUs,
 	 * alle weiteren virtual Threads bekommen erst dann einen Carrier, wenn die ersten 
 	 * virtual Threads beendet sind.
 	 * 
@@ -59,7 +61,7 @@ public class Lock_SOLUTION {
 					//System.out.println("virtual thread in critical section " + Thread.currentThread());
 
 					// do some work
-					cpuIntensiveCall(5);
+					cpuIntensiveCall(4);
 					
 					// Es ist entscheidend, den println() Aufruf erst hier zu machen 
 					System.out.println("virtual thread running " + cnt + " at " + startThreadTime + " Milliseconds " + Thread.currentThread());
