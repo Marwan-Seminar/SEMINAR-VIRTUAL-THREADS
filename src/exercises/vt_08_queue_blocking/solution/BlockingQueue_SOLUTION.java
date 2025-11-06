@@ -1,4 +1,4 @@
-package exercises.vt_09_queue_blocking.solution;
+package exercises.vt_08_queue_blocking.solution;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
