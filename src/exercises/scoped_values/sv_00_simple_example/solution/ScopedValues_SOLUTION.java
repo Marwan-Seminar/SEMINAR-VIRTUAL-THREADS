@@ -1,4 +1,4 @@
-package exercises.vt_12_scoped_value.solution;
+package exercises.scoped_values.sv_00_simple_example.solution;
 
 import java.util.concurrent.ExecutionException;
 

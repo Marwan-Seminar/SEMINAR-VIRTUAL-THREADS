@@ -1,4 +1,4 @@
-package exercises.vt_12_scoped_value.base;
+package exercises.scoped_values.sv_00_simple_example.base;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
