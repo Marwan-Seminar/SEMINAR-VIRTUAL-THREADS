@@ -59,7 +59,7 @@ public class Lock_SOLUTION {
 					//System.out.println("virtual thread in critical section " + Thread.currentThread());
 
 					// do some work
-					cpuIntensiveCall(1);
+					cpuIntensiveCall(5);
 					
 					// Es ist entscheidend, den println() Aufruf erst hier zu machen 
 					System.out.println("virtual thread running " + cnt + " at " + startThreadTime + " Milliseconds " + Thread.currentThread());
@@ -70,7 +70,7 @@ public class Lock_SOLUTION {
 			
 		}
 		
-		sleep(30000);
+		sleep(60000);
 	}
 	
 	

@@ -60,7 +60,7 @@ public class Lock_BASE {
 				// TODO 2 lock() hier einfuegen
 			
 				// do some CPU work
-				cpuIntensiveCall(1);
+				cpuIntensiveCall(5);
 					
 				// Es ist entscheidend, den println() Aufruf erst hier zu machen,
 				// da dieser ein blockierender Aufruf ist, der den Programmablauf veraendert
@@ -71,7 +71,7 @@ public class Lock_BASE {
 			
 		}
 		
-		sleep(10000);
+		sleep(60000);
 	}
 	
 	
