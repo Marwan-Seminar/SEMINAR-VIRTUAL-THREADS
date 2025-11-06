@@ -13,10 +13,9 @@ package exercises.vt_14_threadpool_config.base;
  * A) Konfiguriere den Threadpool so, dass nur ein Virtual-Thread gleichzeitig laufen kann
  * und zeige an einem Beispiel, dass dann andere Virtual-Threads warten müssen
  * 
- * B) Konfiguriere den Pool so, dass im Falle vieler pinning Threads
- * der Pool auf 100 anwaechst. Zeige dass damit auch bei Pinning 100 
- * Virtual-Threads starten‚
- * 
+ *  B) Konfiguriere den Pool so, dass im Falle vieler laufender Threads zu einem Spreicherplatz-Problem kommt.
+ * Hinweis: Du musst dafuer sehr viele virtual Threads starten, und sie muessen auf der CPU arbeiten (warum?)
+ * Nutze z.B. die Funktion cpuIntensiveCall(1000);
  */
 public class PoolConfig_BASE {
 	public static void main(String[] args) {
@@ -63,36 +62,28 @@ public class PoolConfig_BASE {
 	}
 		
 	/*
-	 * ACHTUNG: Kann zu Deadlock fuehren (fuer mich unerklaerlich)!
+	 * B) Erzeuge Exeptions oder uebermaessigen Speicherbedarf
+	 * indem du Pool durch "boesartige" Einstellung der folgenden VM-Parameter dazu dazu 
+	 *  bringst sehr weit zu wachsen
 	 *  
-	 * Zeige, dass ein immer weiter wachsender Pool auch bei Pinning sehr viele 
-	 * gleichzeitige Virtual-Threads ermoeglicht
-	 * 
 	 -Djdk.virtualThreadScheduler.parallelism=X
 	 -Djdk.virtualThreadScheduler.maxPoolSize=Y
 	 -Djdk.virtualThreadScheduler.minRunnable=Z
-	 
-	 * KOMMENTAR zu den Deadlocks: 
-	 *  Erzeugt hier einen Deadlock, wenn die Anzahl gestartetet Virtual-Threads 
-	 *  groesser ist als die Anzahl der Threads im Pool
-	 *  
-	 *  Die Deadlocks verschwinden, wenn die printouts im synchronized Block auskommentiert werden.
 	 */
 	void bigPool() {
+	
+		// muss unter Umstaenden noch groesser gewaehlt werden, z.B. 300.000 (Plattform / OS abhaengig)
+		final int THREAD_COUNT = 100_000;
 		
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < THREAD_COUNT; i++) {
 			final int cnt = i;
 			Thread.ofVirtual().name(" VT " + cnt).start(() -> {
 				System.out.println("VT: " + cnt + " started" + Thread.currentThread());
-				synchronized(this) {
-					// Sehr seltsam: Diese Zeile provoziert machmal einen Deadlock, wenn die maxPoolSize kleiner als die Zahl der gestarteten Threads ist. Bug?
-					//System.out.println("VT " + cnt + " in synch block " + Thread.currentThread());
-					sleep(1000);
-					System.out.println("VT " + cnt + " woke up " + Thread.currentThread());
-				}
+				
+				cpuIntensiveCall(1000);
+				System.out.println("VT " + cnt + " woke up " + Thread.currentThread());
 
 			});
-			
 		}
 		
 		sleep(100000);
