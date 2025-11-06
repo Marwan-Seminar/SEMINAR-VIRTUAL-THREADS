@@ -33,7 +33,7 @@ public class Performance_BASE {
 	void platformThreadsSlow(){
 		
 		// Ansatz 1: 10 Sekunden (Langsam)
-		ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE); // Pool mit 100 Platform Threads
+		ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE); // Pool mit Platform Threads
 		
 		
 		
