@@ -74,7 +74,7 @@ public class FibonacciVirtualThreadsSolution {
 
 	/*
 	 * Szenario 3:
-	 * Naive parallelization of Fibonaccie based on Virtual Threads
+	 * Naive parallelization of Fibonacci based on Virtual Threads
 	 * Result: Stable but slow: That is already a significant gain over
 	 * the naive platform threead parallelization!
 	 */
@@ -121,7 +121,7 @@ class SequentialFibonacci{
 
 /*
  * Scenario 2
- * This class realizes a naive parallelization of fibonacci, based on Platfrom-Threads.
+ * This class realizes a naive parallelization of Fibonacci, based on Platfrom-Threads.
  * It can cause out of memory errors.
  * this shows, that platform threads are expensive.
  */
@@ -159,7 +159,7 @@ class FiboNaivePlatformThreads extends Thread{
 
 /*
  * Scenario 3:
- * This class realizes a naive parallelization of fibonacci with VirtualThreads
+ * This class realizes a naive parallelization of Fibonacci with Virtual Threads
  * It runs stable, but is is VERY slow (can run for Hours...)
  */
 class FiboNaiveVirtual implements Runnable{

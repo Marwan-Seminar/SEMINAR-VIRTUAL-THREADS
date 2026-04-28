@@ -8,10 +8,10 @@ package exercises.vt_16_fibonacci_virt_plat.base;
  * 
  * Dieser Algorithmus implementiert eine rekursive Berechnung einer Fibonacci Zahl.
  * 
- * Er lasst sich auf sehr einfache Weise parallelisieren, indem jeder Rekursionszwig in 
- * einem eignen Thread ausgefuert wird.
+ * Er laesst sich auf sehr einfache Weise parallelisieren, indem jeder Rekursionszweig in 
+ * einem eigenen Thread ausgefuehrt wird.
  * 
- * Ohne weitere Massnahmen ist dier Ansatz nicht erfolgreich, weil er zu viele Threads 
+ * Ohne weitere Massnahmen ist dieer Ansatz nicht erfolgreich, weil er zu viele Threads 
  * erzeugt.
  * 
  * Begrenzt man jedoch die Anzahl der Threads, indem man ab einer gewissen Tiefe im Baum sequentiell weiter macht, 
@@ -19,13 +19,13 @@ package exercises.vt_16_fibonacci_virt_plat.base;
  * 
  * Man kann hier z.B. folgende Beobachtungen zu Threads und deren Kosten machen:
  * 
- * Scenario 1: Eine Naive Parallelisierung mit Platform Threads fürht zu einem Crash durch zu viel MEmory Bedarf
+ * Scenario 1: Eine Naive Parallelisierung mit Platform Threads führt zu einem Crash durch zu viel Memory Bedarf
  * 
  * Scenario 2: Eine naive Parallelisierung durch Virutal Threads ist stabil aber langsam
  * 
- * Scenario 3: Eine PArallelisierung mit Threshold, wie oben beschrieben, ist effizient.
+ * Scenario 3: Eine Parallelisierung mit Threshold, wie oben beschrieben, ist effizient.
  * 
- * Implemntieren Sie diese drei Scenarien!
+ * Implemntieren Sie diese drei Szenarien!
  * 
  * Expected values on my machine, macbooc M4, 14 Cores
  * Fibo 50 sequential: 20365011074 time(ms): 18958
