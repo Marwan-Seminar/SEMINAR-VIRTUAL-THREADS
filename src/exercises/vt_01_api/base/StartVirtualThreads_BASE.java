@@ -46,7 +46,7 @@ public class StartVirtualThreads_BASE {
 	}
 
 	/*
-	 * 2 Nutze einen ExecutorService um eine Lambda Expression in einem Vitual-Thread auszufuehren
+	 * 2 Nutze einen ExecutorService, um eine Lambda Expression in einem Vitual-Thread auszufuehren
 	 */
 	void executeInVirtualThread() throws InterruptedException, ExecutionException {
 		System.out.println("StartVirtualThreads_BASE.executeInVirtualThread()");
@@ -57,7 +57,8 @@ public class StartVirtualThreads_BASE {
 		// TODO 2: Code in neuem Virtual-Thread ausfuehren: ExecutorService.submitt(...)
 		
 
-		// TODO 3: Warten Future<?>.get
+		// TODO 3: Warten und Ergebnis abholen Future<?>.get
+		
 	}
 
 }

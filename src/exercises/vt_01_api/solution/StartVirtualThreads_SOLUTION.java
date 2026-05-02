@@ -44,6 +44,7 @@ public class StartVirtualThreads_SOLUTION {
 		
 		// Warten
 		virtualThread.join();
+		System.out.println("Virtual Thread returned");
 	}
 	
 	/*
@@ -55,12 +56,14 @@ public class StartVirtualThreads_SOLUTION {
 		ExecutorService virtualThreadExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
 		// Starten
-		Future<?> threadResult = virtualThreadExecutor.submit(() -> {
+		Future<Integer> threadResult = virtualThreadExecutor.submit(() -> {
 			System.out.println("Virtual Thread via Executor " + Thread.currentThread());
+			return 7;
 		});
 
-		// Warten
-		threadResult.get();
+		// Warten und Ergebnis abholen
+		int returnValue = threadResult.get();
+		System.out.println("Thread returned: " + returnValue);
 	}
 
 }

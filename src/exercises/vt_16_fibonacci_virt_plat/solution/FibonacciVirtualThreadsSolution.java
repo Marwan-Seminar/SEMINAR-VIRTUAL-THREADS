@@ -16,7 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 // 1. Sequentially
 // 2. Naively parallelized
 // 3. Parallelized with threshold
-// Expected values on my machine, Mac Pro M4, 14 Cores
+
+// Expected values on my machine, Mac Pro M4 Pro, 14 Cores
 // Fibo 50: Sequential: 20 Sec, 
 // Fibo Platform Threads Parallel with Threshiold: 2 Sec.
 // Fibo Virtual Threads with Threshold 2 Sed
